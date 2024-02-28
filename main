@@ -1,0 +1,38 @@
+<HTML>
+<head>
+<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+</head>
+<body>
+<py-script>
+import turtle
+
+# Create the turtle object
+t = turtle.Turtle()
+
+# Hide the turtle (optional, for cleaner visual experience)
+t.hideturtle()
+
+# Get the screen object
+screen = turtle.Screen()
+
+# Function to move the turtle to the cursor position
+def move_to_cursor():
+  # Get the cursor coordinates
+  x, y = screen.getmouse()
+  
+  # Move the turtle to the coordinates smoothly
+  t.penup()
+  t.goto(x, y)
+  t.pendown()
+
+# Bind the move_to_cursor function to left mouse click event
+screen.onmousedown(move_to_cursor)
+
+# Keep the window open until closed manually
+screen.listen()
+screen.mainloop()
+
+</py-script>
+
+</body>
+</HTML>
